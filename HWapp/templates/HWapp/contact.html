@@ -1,0 +1,62 @@
+
+ {% extends 'HWapp/base.html' %}
+ {% load static %}
+ {% block content %}
+  
+ <div class="men">
+   	 <div class="container">
+   	  <div class="grid_1">
+		<h2 style="text-align: center; margin-top: -10px; font-size: 50px; color:black;"><b>Contact Us</b></h2>
+		<br>
+	   	  <p>For any kind of info or query, you can contact/access us through phone number, email, office address. Fell free to contact us for getting info about any product or any kind of suggestion. Look forward..</p>
+      </div>
+	  <br>
+      <div class="grid_4">
+      <div class="grid_2 preffix_1">
+	      <ul class="iphone">
+	      	<i class="phone"> </i>
+	      	<li class="phone_desc">Phone1 : +92-304-3600997 (Whats App) </li>
+	      	<div class="clearfix"> </div>
+	      </ul>
+	      <ul class="iphone">
+			<i class="phone"> </i>
+			<li class="phone_desc">Phone2 : +92-308-9880664 </li>
+			<div class="clearfix"> </div>
+		</ul>
+	  </div>
+	  <div class="grid_3">
+	      <ul class="iphone">
+	      	<i class="msg"> </i>
+	        <li class="phone_desc">Email : <a href="https://accounts.google.com/servicelogin/signinchooser?flowName=GlifWebSignIn&flowEntry=ServiceLogin">tariqumair017@gmail.com</a> </li>
+	      	<div class="clearfix"> </div>
+	      </ul>
+	      <ul class="iphone">
+	      	<i class="home"> </i>
+	        <li class="phone_desc">Office Address : OFF GT Road, Comsats Sahiwal </li>
+	      	<div class="clearfix"> </div>
+	      </ul>
+	  </div>
+	  <div class="clearfix"> </div>
+	 </div>
+	 <br>
+	 <div class="contact_form">
+	 	<h2>Feedback</h2>
+	    <form>
+			<div class="col-md-6 to">
+             	<input type="text" class="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
+			 	<input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+			 	<input type="text" class="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
+			</div>
+			<div class="col-md-6 text">
+               <textarea value="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
+            </div>
+            <div class="clearfix"></div>
+            <div class="but__center"><input type="submit" value="Send message &gt;&gt;"></div>
+        </form>
+     </div>
+    </div>
+	<br><br>
+   </div>
+
+   
+   {% endblock %} 

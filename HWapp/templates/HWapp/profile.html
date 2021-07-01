@@ -1,0 +1,45 @@
+
+    {% extends 'HWapp/base.html' %}
+	{% load static %}
+	{% block content %}
+	
+	<div class="account-in">
+   	  <div class="container">
+		<h1 style="text-align: left; font-size: 40px; color: black;"><b>Your Profile</b></h1>
+    
+   	     <form action=""> 
+				<br><br>
+		   <div class="register-top-grid">
+			 <div>
+				<span>First Name<label>*</label></span>
+				<input readonly type="text" name="firstname" id="" value="{{items.first_name}}"> 
+                
+			 </div>
+			 <div>
+				<span>Last Name<label>*</label></span>
+				<input readonly type="text" name="lastname" id="" value=""> 
+			 </div>
+			 <div>
+				<span>Phone<label>*</label></span>
+				<input readonly type="text" name="phone" id="" value=""> 
+			 </div>
+			 <div>
+				 <span>Email Address<label>*</label></span>
+				 <input readonly type="email" name="email" id="" value=""> 
+			 </div>
+			 <div class="clearfix"> </div>
+			 </div>
+		    
+		<div class="register-but">
+		   
+			   <input type="submit" value="Upload_Picture">
+			   <div class="clearfix"> </div>
+		   
+		</div>
+		  </form>
+        
+		
+	   </div>
+   </div>
+
+   {% endblock %}

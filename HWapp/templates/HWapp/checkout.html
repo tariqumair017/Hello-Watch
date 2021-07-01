@@ -1,0 +1,147 @@
+
+{% extends 'HWapp/base.html' %}
+{% load static %}
+{% block content %}
+
+{% load cart %}
+{% load custom %}
+ <div class="account-in">
+   	 <div class="container">
+		  <div class="check_box">	 
+		<div class="col-md-9 cart-items">
+			<h2 style="text-align: left; margin-top: -2px; font-size: 30px; color:black;"><b>My Shopping Bag</b></h2>
+			<br><br>
+			
+			
+				<script>$(document).ready(function(c) {
+					$('.close1').on('click', function(c){
+						$('.cart-header').fadeOut('slow', function(c){
+							$('.cart-header').remove();
+						});
+						});	  
+					});
+			   </script>
+			   {% for items in products %}	
+			 <div class="cart-header">							 
+				 <div class="close1"> </div>
+				   <div class="cart-sec simpleCart_shelfItem">
+						<div class="cart-item cyc">
+							 <img src="{{ items.image.url }}" class="img-responsive" alt="No img"/>
+						</div>
+					   <div class="cart-item-info">
+						<h3>
+							<span><b>Sr.No: {{forloop.counter}}</b></span>
+							<br>
+							<a>{{ items.name }}</a>						
+						</h3>
+						<ul class="qty">
+							<li><p>{{items.price|currency}}</p></li>
+							<li><p>Qty : {{items|cart_qty:request.session.cart}}</p></li>
+						</ul>
+						<div class="delivery">
+							 <p>Total : {{items|price_total:request.session.cart}}</p>
+							 <span>Delivered in 2-3 business days</span>
+							 <div class="clearfix"></div>
+				        </div>	
+					   </div>
+					   <div class="clearfix"></div>
+				    </div>									
+			 </div>
+			 {% endfor %}
+			
+			 <br><br>
+			 <!--CheckOut-->
+			 
+				<h1 style="text-align: left; font-size: 35px; color: black;"><b>Checkout Here Please</b></h1>
+		
+				 <form action="" method="POST"> 
+					{% csrf_token %}
+				   <div class="register-top-grid">
+					  <div>
+						<span>Name<label>*</label></span>
+						<input required type="text" name="name" id="" value=""> 
+					  </div>
+					  <div>
+						<span>Address<label>*</label></span>
+						<input required type="text" name="address" id="" value=""> 
+					  </div>
+					  <div>
+						<span>Phone<label>*</label></span>
+						<input required type="text" name="phone" id="" placeholder="03XX-" value=""> 
+					  </div>
+					 					 
+				   </div>
+					 
+					 <div class="clearfix"> </div>
+				<div class="register-but">
+				   
+					   <input type="submit" value="check_out">
+					   <div class="clearfix"> </div>
+				   
+				</div>
+				  </form>
+				
+			   
+
+
+
+
+			 <!--
+			 <script>$(document).ready(function(c) {
+					$('.close2').on('click', function(c){
+							$('.cart-header2').fadeOut('slow', function(c){
+						$('.cart-header2').remove();
+					});
+					});	  
+					});
+			 </script>
+			 <div class="cart-header2">
+				 <div class="close2"> </div>
+				  <div class="cart-sec simpleCart_shelfItem">
+						<div class="cart-item cyc">
+							 <img src="{% static 'HWapp/images/m4.jpg'%}" class="img-responsive" alt=""/>
+						</div>
+					   <div class="cart-item-info">
+						<h3><a href="#">Mountain Hopper(XS R034)</a><span>Model No: 3578</span></h3>
+						<ul class="qty">
+							<li><p>Size : 5</p></li>
+							<li><p>Qty : 1</p></li>
+						</ul>
+							 <div class="delivery">
+							 <p>Service Charges : Rs.100.00</p>
+							 <span>Delivered in 2-3 business days</span>
+							 <div class="clearfix"></div>
+				        </div>	
+					   </div>
+					   <div class="clearfix"></div>
+				  </div>
+			  </div>
+			  -->		
+		 </div>
+		 <div class="col-md-3 cart-total">
+			 <br><br>
+			 <a class="continue" >Bill</a>
+			 <div class="price-details">
+				 <h3>Price Details</h3>
+
+				 {% for items in products %}
+				 <span>Sr.No: {{forloop.counter}}</span>
+				 <span class="total1">{{items|price_total:request.session.cart|currency}}</span>
+				 {% endfor %}
+		
+				 <div class="clearfix"></div>				 
+			 </div>	
+			 <ul class="total_price">
+			   <li class="last_price"> <h4>Grand_TOTAL</h4></li>	
+			   <li class="last_price"><span>{{products|total_cart_price:request.session.cart|currency}}</span></li>
+			   <div class="clearfix"> </div>
+			 </ul>
+			 <div class="clearfix"></div>
+			
+			</div>
+			<div class="clearfix"></div>
+	     </div>
+	  </div>
+   </div>
+
+   {% endblock %} 

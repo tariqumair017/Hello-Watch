@@ -1,0 +1,56 @@
+
+{% extends 'HWapp/base.html' %}
+{% load static %}
+{% block content %}
+
+{% load cart %}
+{% load custom %}
+
+   	 <div class="container">
+		  	 <br><br><br><br>
+			<h2 style="text-align: left; margin-top: -2px; font-size: 40px; color:black;"><b>Yours Orders</b></h2>
+			<hr>
+			<br>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Sr.No</th>
+						<th>Image</th>
+						<th>Product_Name</th>
+						<th>Date/Time</th>
+						<th>Unit_Price</th>
+						<th>Quantity</th>
+						<th>Total</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for items in orders %}
+					<tr>
+						<td>{{forloop.counter}}</td>
+						<td><img style="height: 65px;" src="{{ items.product.image.url }}" alt="No img" /></td>
+						<td>{{items.product.name }}</td>
+						<td>{{items.date }}</td>
+						<td>{{items.price|currency}}</td>
+						<td>{{items.qty}}</td>
+						<td>{{items.qty|multiply:items.price|currency}}</td>
+					 {% if items.status %}
+					    <td style="color: green;">Completed</td>   
+					 {% else %}
+					    <td style="color: red;">Pending</td>
+					  {% endif %}
+					</tr>
+					{%  endfor %}
+				</tbody>
+
+			</table>
+
+			<div class="clearfix"></div>
+			<br><br><br><br><br><br><br><br><br><br>
+
+			
+	     
+	 </div>
+
+
+   {% endblock %} 

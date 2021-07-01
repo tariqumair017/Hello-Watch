@@ -1,0 +1,70 @@
+
+    {% extends 'HWapp/base.html' %}
+	{% load static %}
+	{% block content %}
+	
+	<div class="account-in">
+   	  <div class="container">
+		<h1 style="text-align: center; font-size: 45px; color: black;"><b>*Register Yourself*</b></h1>
+		<br><br>
+   	     <form action="" method="POST"> 
+				{% csrf_token %}
+
+				{% if error %}
+				{% csrf_token %}
+				<div style="color: red; text-align: center;" role="alert">
+					<b>{{error}}</b>
+				</div>
+				{% endif %}
+				<br><br>
+		   <div class="register-top-grid">
+			<h2>PERSONAL INFORMATION</h2>
+			 <div>
+				<span>First Name<label>*</label></span>
+				<input type="text" name="firstname" id="" value="{{vls.a}}"> 
+			 </div>
+			 <div>
+				<span>Last Name<label>*</label></span>
+				<input type="text" name="lastname" id="" value="{{vls.b}}"> 
+			 </div>
+			 <div>
+				<span>Phone<label>*</label></span>
+				<input type="text" name="phone" id="" placeholder="03XX-" value="{{vls.c}}"> 
+			 </div>
+			 <div>
+				 <span>Email Address<label>*</label></span>
+				 <input type="email" name="email" id="" placeholder="example@gmail.com" value="{{vls.d}}"> 
+			 </div>
+			 <div class="clearfix"> </div>
+			 <br>
+			  <!-- <a class="news-letter" href="#">
+				 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
+			   </a>
+			   -->
+			 </div>
+		     <div class="register-bottom-grid">
+				    <h2>LOGIN INFORMATION</h2>
+					 <div>
+						<span>Password<label>*</label></span>
+						<input type="password" name="password" id="">
+					 </div>
+					<!-- <div>
+						<span>Confirm Password<label>*</label></span>
+						<input type="password" name="password" id="">
+					 </div>
+					 -->
+					 <div class="clearfix"> </div>
+			 </div>
+			 <div class="clearfix"> </div>
+		<div class="register-but">
+		   
+			   <input type="submit" value="Create Account">
+			   <div class="clearfix"> </div>
+		   
+		</div>
+		  </form>
+		
+	   </div>
+   </div>
+
+   {% endblock %}
